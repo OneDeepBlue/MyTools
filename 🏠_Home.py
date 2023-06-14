@@ -9,7 +9,7 @@ st.set_page_config(page_title="我的在线工具", page_icon=":100:", layout="c
 menu_items = ["主页", "入库", "出库", "🚜叉车任务执行"]
 
 button2 = st.button("看看气球")
-button3 = st.button("雪花")
+button3 = st.button("赏雪")
 if button2:
     st.balloons()  # 气球效果
     # st.snow()  # 雪花效果

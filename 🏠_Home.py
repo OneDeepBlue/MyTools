@@ -4,17 +4,6 @@ import streamlit as st
 import pandas as pd
 
 
-sidebar_obj = st.sidebar
-# 创建侧边栏菜单
-sidebar_obj.header("功能")
-menu_items = ["主页", "入库", "出库", "🚜叉车任务执行"]
-selected_item = sidebar_obj.radio('请选择菜单项👇', menu_items, index=0)
-# selected_item = sidebar_obj.selectbox("请选择菜单项", menu_items)
-
-env_items = ["开发环境", "测试环境", "线上环境"]
-env = sidebar_obj.selectbox("请选择运行环境", env_items)
-
-
 button2 = st.button("看看气球")
 button3 = st.button("雪花")
 if button2:

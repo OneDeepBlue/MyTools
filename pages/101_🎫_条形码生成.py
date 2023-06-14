@@ -2,6 +2,9 @@ import streamlit as st
 import barcode
 from barcode.writer import ImageWriter
 
+st.set_page_config(page_title="GWMS接口测试", page_icon=":100:", layout="centered",
+                   initial_sidebar_state="expanded")
+
 BARCODE_MAP = ["code128", "ean8", "ean8-guard", "ean13", "ean13-guard", "ean", "gtin", "ean14", "jan", "upc", "upca",
                "isbn", "isbn13",
                "gs1", "isbn10", "issn", "code39", "pzn", "itf", "gs1_128", "codabar", "nw-7"]

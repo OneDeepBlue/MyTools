@@ -5,7 +5,7 @@ st.set_page_config(page_title="二维码生成", page_icon="📷", layout="cente
                    initial_sidebar_state="expanded")
 
 # 获取用户输入的条形码数据
-qrcode_str = st.text_area(label="🎫请输入条形码数据", height=200)
+qrcode_str = st.text_area(label="🎫请输入条形码数据", height=200, key="qrcode")
 st.caption("支持批量操作，一行一个，理论上无限制条数 :sunglasses:")
 result = qrcode_str.split("\n")  # 切割
 qrcode_list = [x for x in result if x]  # 去除空元素

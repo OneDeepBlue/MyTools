@@ -3,6 +3,7 @@ import time
 import streamlit as st
 import pandas as pd
 
+menu_items = ["主页", "入库", "出库", "🚜叉车任务执行"]
 
 button2 = st.button("看看气球")
 button3 = st.button("雪花")

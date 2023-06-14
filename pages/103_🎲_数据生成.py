@@ -1,6 +1,10 @@
 import streamlit as st
 
 from common import mock
+
+st.set_page_config(page_title="数据生成", page_icon=":100:", layout="centered",
+                   initial_sidebar_state="expanded")
+
 data_type = ["身份证号", "手机号", "姓名", "车牌号"]
 
 _type = st.selectbox("数据类型", data_type)

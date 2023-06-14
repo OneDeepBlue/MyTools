@@ -3,6 +3,9 @@ import time
 import streamlit as st
 import pandas as pd
 
+st.set_page_config(page_title="GWMS接口测试", page_icon=":100:", layout="centered",
+                   initial_sidebar_state="expanded")
+
 menu_items = ["主页", "入库", "出库", "🚜叉车任务执行"]
 
 button2 = st.button("看看气球")

@@ -1,5 +1,8 @@
 import streamlit as st
 
+st.set_page_config(page_title="数据找相同", page_icon="🧐", layout="centered",
+                   initial_sidebar_state="expanded")
+
 st.write("判断两个数据中是否存在相同的数据行，并显示出来")
 
 col1, col2 = st.columns(2)

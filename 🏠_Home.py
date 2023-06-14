@@ -3,7 +3,6 @@ import time
 import streamlit as st
 import pandas as pd
 
-from common.mysql_operate import mysql_db
 
 sidebar_obj = st.sidebar
 # 创建侧边栏菜单
@@ -67,23 +66,6 @@ st.write("面积图")
 st.area_chart(sales)
 st.write("折线图")
 st.line_chart(sales)
-
-datatype = 100
-sql = f"""select weather FROM `city_weather` where DATE_SUB(CURDATE(), INTERVAL  {datatype} DAY) < date(jointime) AND 
-        city='440881';"""
-weather_s = mysql_db.select_db(sql)
-temperature = []
-reporttime = []
-humidity = []
-for i in weather_s:
-    weather = eval(i["weather"])
-    temp = float(weather["lives"][0]["temperature"])
-    temperature.append(temp)
-    hum = float(weather["lives"][0]["humidity"])
-    humidity.append(hum)
-    hour_minute = weather["lives"][0]["reporttime"][:13]
-    reporttime.append(hour_minute)
-
 
 tab1, tab2, tab3 = st.tabs(["Cat", "Dog", "Owl"])
 with tab1:

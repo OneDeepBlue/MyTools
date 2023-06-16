@@ -1,4 +1,5 @@
 import json
+import re
 from jsonpath_rw_ext import parse
 
 import streamlit as st
@@ -8,7 +9,18 @@ st.set_page_config(page_title="JSON格式化", page_icon=":100:", layout="center
 
 json_str = st.text_area(label="请输入json数据", height=200)
 if json_str:
-    json_obj = json.loads(json_str)
+    try:
+        json_obj = json.loads(json_str)
+    except json.JSONDecodeError as e:
+        # 从错误信息中提取出错误位置信息
+        match = re.search(r"line (\d+) column (\d+)", str(e))
+        if match:
+            line = int(match.group(1))
+            column = int(match.group(2))
+            raise ValueError(f"JSON格式错误，第 {line} 行第 {column} 列出现了错误")
+        else:
+            raise ValueError("JSON格式错误，无法解析")
+    # json_obj = json.loads(json_str)
     expander = st.expander("JSON提取")
     jsonPath = expander.text_input('jsonPath表达式', value='', max_chars=None)
     button = expander.button("执行")

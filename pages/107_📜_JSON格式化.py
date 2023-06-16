@@ -1,11 +1,9 @@
 import json
 import re
+
 from jsonpath_rw_ext import parse
 
 import streamlit as st
-
-st.set_page_config(page_title="JSON格式化", page_icon=":100:", layout="centered",
-                   initial_sidebar_state="expanded")
 
 json_str = st.text_area(label="请输入json数据", height=200)
 if json_str:

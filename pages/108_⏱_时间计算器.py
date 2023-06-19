@@ -3,6 +3,8 @@ import random
 import streamlit as st
 from datetime import datetime, timedelta
 
+st.set_page_config(page_title="时间计算器", page_icon="⏱", layout="centered",
+                   initial_sidebar_state="expanded")
 
 def is_workday(date):
     # 判断是否为周六周日

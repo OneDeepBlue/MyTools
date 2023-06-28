@@ -27,3 +27,11 @@ st.write("")
 st.write("相同的数据(不包含空行)👇")
 st.code(d, line_numbers=True)
 st.write("共", len(c), "行")
+
+st.write("")
+# 显示不同的行
+with st.expander("显示不同的行"):
+    with st.spinner('数据较多，请稍等...'):
+        diff = [i for i in result if i not in result2]
+    st.code("\n".join(diff), line_numbers=True)
+    st.write("共", len(diff), "行")

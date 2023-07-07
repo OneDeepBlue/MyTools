@@ -2,6 +2,7 @@ import streamlit as st
 import barcode
 from barcode.writer import ImageWriter
 
+
 BARCODE_MAP = ["code128", "ean8", "ean8-guard", "ean13", "ean13-guard", "ean", "gtin", "ean14", "jan", "upc", "upca",
                "isbn", "isbn13",
                "gs1", "isbn10", "issn", "code39", "pzn", "itf", "gs1_128", "codabar", "nw-7"]
@@ -9,7 +10,7 @@ BARCODE_MAP = ["code128", "ean8", "ean8-guard", "ean13", "ean13-guard", "ean", "
 barcode_map = st.selectbox("条码类型", BARCODE_MAP)
 
 # 获取用户输入的条形码数据
-barcode_str = st.text_area(label="🎫请输入条形码数据", height=200, key="barcode")
+barcode_str = st.text_area(label="🎫请输入条形码数据", height=200)
 st.caption("支持批量操作，一行一个，理论上无限制条数 :sunglasses:")
 result = barcode_str.split("\n")  # 切割
 barcode_list = [x for x in result if x]  # 去除空元素
@@ -42,3 +43,4 @@ if barcode_list:
         else:
             with col1:
                 st.image(bar_code.render())
+

@@ -18,10 +18,11 @@ if json_str:
         if match:
             line = int(match.group(1))
             column = int(match.group(2))
-            raise ValueError(f"JSON格式错误，第 {line} 行第 {column} 列出现了错误")
+            st.error(f"JSON格式错误，第 {line} 行第 {column} 列出现了错误!")
+            st.stop()
         else:
-            raise ValueError("JSON格式错误，无法解析")
-    # json_obj = json.loads(json_str)
+            st.error("JSON格式错误，无法解析!")
+            st.stop()
     expander = st.expander("JSON提取")
     jsonPath = expander.text_input('jsonPath表达式', value='', max_chars=None)
     button = expander.button("执行")
@@ -35,5 +36,5 @@ if json_str:
                 expander.write(data_list)
             except:
                 expander.error("jsonPath表达式有误，请检查后重试")
-    st.write("已格式化，可选择复制👇")
+    st.write("已生成，可选择复制👇")
     st.write(json_obj)

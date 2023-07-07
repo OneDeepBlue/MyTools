@@ -35,5 +35,5 @@ if json_str:
                 expander.write(data_list)
             except:
                 expander.error("jsonPath表达式有误，请检查后重试")
-    st.write("已生成，可选择复制👇")
+    st.write("已格式化，可选择复制👇")
     st.write(json_obj)

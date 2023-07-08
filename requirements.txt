@@ -8,3 +8,4 @@ streamlit==1.22.0
 qrcode==7.4.2
 numpy==1.21.6
 pyzbar==0.1.9
+qrcode==7.4.2

@@ -8,7 +8,7 @@ st.set_page_config(page_title="数据生成", page_icon=":100:", layout="centere
 data_type = ["身份证号", "手机号", "姓名", "车牌号"]
 
 _type = st.selectbox("数据类型", data_type)
-number = st.number_input("数量", value=10, step=10)
+number = st.number_input("数量", value=10, step=10, max_value=9999)
 button = st.button("🎲 生成")
 data = ""
 

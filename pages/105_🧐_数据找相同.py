@@ -23,15 +23,20 @@ with st.spinner('数据较多，请稍等...'):
     c = [i for j, i in enumerate(result) if i in result2 and i not in result[:j]]  # 另一种方法，这个输出的元素顺序不变
 d = "\n".join(c)
 
-st.write("")
-st.write("相同的数据(不包含空行)👇")
-st.code(d, line_numbers=True)
-st.write("共", len(c), "行")
+col11, col12 = st.columns(2)
 
 st.write("")
+with col11:
+    st.write("相同的数据(不包含空行)👇")
+    st.code(d, line_numbers=True)
+    st.write("共", len(c), "行")
+
+# st.write("")
 # 显示不同的行
-with st.expander("显示不同的行"):
+with col12.expander("查看不同的行"):
     with st.spinner('数据较多，请稍等...'):
-        diff = [i for i in result if i not in result2]
-    st.code("\n".join(diff), line_numbers=True)
-    st.write("共", len(diff), "行")
+        diff = [i for i in result if i not in result2]  # 源数据与目标数据对比
+        diff2 = [i for i in result2 if i not in result]  # 目标数据与源数据对比
+        unique_list = list(set(diff+diff2))  # 合并后去重
+    st.code("\n".join(unique_list), line_numbers=True)
+    st.write("共", len(unique_list), "行")

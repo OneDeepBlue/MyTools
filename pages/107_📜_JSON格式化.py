@@ -8,7 +8,7 @@ import streamlit as st
 st.set_page_config(page_title="JSON格式化", page_icon="📜", layout="centered",
                    initial_sidebar_state="expanded")
 
-json_str = st.text_area(label="请输入json数据", height=200)
+json_str = st.text_area(label="请输入json数据", height=200, max_chars=99999)
 if json_str:
     try:
         json_obj = json.loads(json_str)

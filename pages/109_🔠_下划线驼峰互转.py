@@ -5,7 +5,7 @@ import streamlit as st
 st.set_page_config(page_title="下划线驼峰互转", page_icon="🔠", layout="centered",
                    initial_sidebar_state="expanded")
 
-data_str = st.text_area(value="hump_example\nhump_example_more", label="📝待转换内容", height=200)
+data_str = st.text_area(value="hump_example\nhump_example_more", label="📝待转换内容", height=200, max_chars=99999)
 col1, col2 = st.columns(2)
 with col1:
     but = st.button("下划线转驼峰")

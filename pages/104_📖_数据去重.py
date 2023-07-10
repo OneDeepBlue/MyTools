@@ -5,7 +5,7 @@ from collections import OrderedDict
 st.set_page_config(page_title="数据去重", page_icon="📖", layout="centered",
                    initial_sidebar_state="expanded")
 
-data_str = st.text_area(label="📄原数据", height=200)
+data_str = st.text_area(label="📄原数据", height=200, max_chars=99999)
 a = ""
 b = ""
 if data_str:

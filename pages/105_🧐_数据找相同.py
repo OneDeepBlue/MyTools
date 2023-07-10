@@ -8,12 +8,12 @@ st.write("判断两个数据中是否存在相同的数据行，并显示出来"
 col1, col2 = st.columns(2)
 
 with col1:
-    data_str = st.text_area(label="📝原数据", height=400)
+    data_str = st.text_area(label="📝原数据", height=400, max_chars=99999)
     result = [x for x in data_str.split("\n") if x]  # 去除空元素
     st.write(len(result))
 
 with col2:
-    data_str2 = st.text_area(label="📑对比数据", height=400)
+    data_str2 = st.text_area(label="📑对比数据", height=400, max_chars=99999)
     result2 = [x for x in data_str2.split("\n") if x]  # 去除空元素
     st.write(len(result2))
 

@@ -1,6 +1,7 @@
 import streamlit as st
 import barcode
 from barcode.writer import ImageWriter
+from barcode.errors import IllegalCharacterError
 
 
 BARCODE_MAP = ["code128", "ean8", "ean8-guard", "ean13", "ean13-guard", "ean", "gtin", "ean14", "jan", "upc", "upca",

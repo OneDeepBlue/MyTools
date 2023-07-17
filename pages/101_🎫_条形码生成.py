@@ -11,7 +11,7 @@ barcode_map = st.selectbox("条码类型", BARCODE_MAP)
 
 # 获取用户输入的条形码数据
 barcode_str = st.text_area(label="🎫请输入条形码数据", height=200, max_chars=9999)
-st.caption("支持批量操作，一行一个")
+st.caption("支持批量操作，一行一个，条形码不支持中文")
 result = barcode_str.split("\n")  # 切割
 barcode_list = [x for x in result if x]  # 去除空元素
 expander = st.expander("更多设置")
@@ -28,7 +28,11 @@ if barcode_list:
     col1, col2 = st.columns(2)
     b_map = barcode.get_barcode_class(barcode_map)
     for i in range(len(barcode_list)):
-        bar_code = b_map(barcode_list[i], writer=ImageWriter())
+        try:
+            bar_code = b_map(barcode_list[i], writer=ImageWriter())
+        except IllegalCharacterError as e:
+            st.error(f"生成时出错：{e}")
+            st.stop()
         bar_code.default_writer_options['module_height'] = module_height
         bar_code.default_writer_options['font_size'] = font_size
         bar_code.default_writer_options['text_distance'] = text_distance
@@ -43,4 +47,5 @@ if barcode_list:
         else:
             with col1:
                 st.image(bar_code.render())
+
 

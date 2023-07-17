@@ -32,7 +32,7 @@ if barcode_list:
         try:
             bar_code = b_map(barcode_list[i], writer=ImageWriter())
         except IllegalCharacterError as e:
-            st.error(f"生成时出错：{e}")
+            st.error(f"😟 生成时出错：{e}")
             st.stop()
         bar_code.default_writer_options['module_height'] = module_height
         bar_code.default_writer_options['font_size'] = font_size
